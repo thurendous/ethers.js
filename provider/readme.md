@@ -1,0 +1,3 @@
+```
+node checkETHAmount.js
+```
