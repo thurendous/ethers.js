@@ -1,5 +1,5 @@
 # How to run
 
 ```shell
-node provider.js
+node checkETHAmount.js
 ```

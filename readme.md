@@ -4,7 +4,7 @@ Let's go!!
 
 # Environment
 
--   You should have installed node
+-   You should have installed [node](https://nodejs.org/en/download/)
 -   You should install ethers.js
 
 ```bash
