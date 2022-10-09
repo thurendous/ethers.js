@@ -1,13 +1,17 @@
-import { ethers } from 'ethers'
+import pkg from 'ethers'
+const { ethers } = pkg
 import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config()
+
 const privateKey = process.env.PRIVATE_KEY ? process.env.PRIVATE_KEY : ''
 
 // randomなwalletを作成
 const randomWallet = new ethers.Wallet.createRandom()
 
 // provider
-const provider = new ethers.providers.JsonRpcProvider(process.env.mumbai_url)
+const provider = new ethers.providers.JsonRpcProvider(process.env.polygon_url)
+const network = await provider.getNetwork()
+console.log(networkname.name)
 // console.log(provider)
 // プライベートキーからwalletを作る
 const wallet1WithProvider = new ethers.Wallet(randomWallet.privateKey, provider)
@@ -39,7 +43,7 @@ const main = async () => {
     const tx = {
         to: '0x2b7a3e2e47ed1030a519d52806fc07b8810904f2',
         value: ethers.utils.parseEther('0.0005'),
-        gasPrice: '31000000000',
+        gasPrice: '34000000000',
     }
 
     //トランザクションを送る。レシートをもらう

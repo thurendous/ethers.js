@@ -1,6 +1,7 @@
 {
     "type": "module",
     "dependencies": {
+        "bn.js": "^5.2.1",
         "dotenv": "^16.0.3",
         "ethers": "^5.7.1"
     }

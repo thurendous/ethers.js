@@ -5,7 +5,7 @@ import { abiWETH, abiERC20 } from './abis.js'
 
 const provider = new ethers.providers.JsonRpcProvider(process.env.polygon_url)
 
-const addressJPYC = '0x431D5dfF03120AFA4bDf332c61A6e1766eF37BDB' // DAI Contract
+const addressJPYC = '0x431D5dfF03120AFA4bDf332c61A6e1766eF37BDB' // JPYC Contract
 const addressWETH = '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619' // WETH Contract
 const contractWETH = new ethers.Contract(addressWETH, abiWETH, provider)
 
