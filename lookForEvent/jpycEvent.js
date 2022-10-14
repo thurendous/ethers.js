@@ -19,14 +19,14 @@ const contract = new ethers.Contract(addressJPYC, abiERC20, provider)
 
 const main = async () => {
     // 获取过去10个区块内的Transfer事件
-    console.log('\n1. 获取过去10个区块内的Transfer事件，并打印出1个')
+    console.log('\n1. 获取过去1800个区块内的Transfer事件，并打印出1个')
     // 得到当前block
     const block = await provider.getBlockNumber()
     console.log(`当前区块高度: ${block}`)
     console.log(`打印事件详情:`)
     const transferEvents = await contract.queryFilter(
         'Transfer',
-        block - 90 * 20, // 過去1h
+        block - 90 * 200, // 過去h
         block
     )
     // 打印第1个Transfer事件
@@ -34,18 +34,16 @@ const main = async () => {
     console.log(transferEvents[0])
 
     let sum = ethers.BigNumber.from(0)
-    console.log(sum)
+    // console.log(sum)
     // 解析Transfer事件的数据（变量在args中）
     console.log('\n2. 解析事件：')
     for (const ele of transferEvents) {
         const amount = ethers.utils.formatUnits(ele.args['value'], 'ether')
         console.log(
-            `地址 ${ele.args['from']} 转账${amount} WETH 到地址 ${ele.args['to']}`
+            `送金${amount} JPYC from アドレス ${ele.args['from']}  to アドレス${ele.args['to']}`
         )
-        console.log(ethers.BigNumber.from(ele.args['value']))
         if (ele) {
             sum = sum.add(ethers.BigNumber.from(ele.args['value']))
-            console.log(sum)
         }
     }
     const totalValue = Math.floor(Number(ethers.utils.formatEther(sum)))
