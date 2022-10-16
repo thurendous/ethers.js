@@ -6,7 +6,7 @@ import { abiWETH, abiJPYCToken, abiERC20 } from './abis.js'
 const provider = new ethers.providers.JsonRpcProvider(process.env.polygon_url)
 
 const network = await provider.getNetwork()
-console.log(`Networ now is: ${network.name}`)
+console.log(`Network now is: ${network.name}`)
 
 const addressUSDT = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F'
 const contractUSDT = new ethers.Contract(addressUSDT, abiERC20, provider)

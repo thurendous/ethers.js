@@ -4,7 +4,7 @@ import ethers from 'ethers'
 
 // 1. とあるnetworkに接続、今回はpolygon
 console.log(`chainに接続済み、、`)
-const provider = new ethers.providers.JsonRpcProvider(process.env.polygon_url)
+const provider = new ethers.providers.JsonRpcProvider(process.env.polygon_url) // あなた自身のあドレスにしてね
 
 // 2. とあるアカウントのbalanceをチェックする
 console.log('\n2. balanceをチェックする')
@@ -46,8 +46,8 @@ console.log(
     )}`
 )
 
-// 7. 今のブロックの情報をチェック
-console.log('\n7. 今のブロックの情報をチェック')
+// 7. ジェネシスのブロックの情報をチェック
+console.log('\n7. ゼロ番のブロックの情報をチェック')
 const block = await provider.getBlock(0)
 console.log(block)
 
@@ -60,3 +60,6 @@ console.log(code)
 code = await provider.getCode('0xf2fAb05F26Dc8da5A3F24D015FB043DB7a8751Cf')
 console.log(`-----implementation----- `)
 console.log(code)
+let code2 = await provider.getCode('0x9aFA1E57DBd343393e1DD1C60BE15712C5fd4b80')
+console.log(`----- no code is 0x ----- `)
+console.log(code2)
